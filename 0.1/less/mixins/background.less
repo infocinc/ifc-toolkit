@@ -1,0 +1,18 @@
+@import (reference) "../variables.less";
+///////////////////////////////////
+// BG
+///////////////////////////////////
+
+.bg-size(@val) {
+  background-size: @val;
+  -webkit-background-size: @val;
+  -moz-background-size: @val;
+  -o-background-size: @val;
+}
+
+.bg(@path;@pattern:no-repeat;@x:center;@y:center;@size:cover) {
+    background: url(@path) @pattern @x @y;
+    .bg-size(@size);
+}
+
+

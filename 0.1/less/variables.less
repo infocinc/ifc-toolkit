@@ -1,0 +1,67 @@
+/*! Copyright 2014 Infocinc (www.infocinc.com)
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//   http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+*/
+// Override Bootstrap variables in this file, e.g.
+
+/////////////////////////////////////////////////////////////////////////////
+// IFC-TOOLKIT SCREEN VARS
+//////////////////////////////////////////////////////////////////////////// 
+
+/////////////////////////////////////////////////////////////////////////////
+// SCREEN VARS (OVERRIDE BOOTSTRAP VARIABLES IF NEEDED)
+//////////////////////////////////////////////////////////////////////////// 
+
+@screen-iphone: 320px;
+@screen-iphone-min: @screen-iphone;
+
+@screen-xs: 480px;
+@screen-xs-min: @screen-xs;
+@screen-phone: @screen-xs-min;
+
+// Small screen / tablet // Note: Deprecated @screen-sm and @screen-tablet as of v3.0.1 
+@screen-sm: 768px;
+@screen-sm-min: @screen-sm;
+@screen-tablet: @screen-sm-min;
+
+// Medium screen / desktop // Note: Deprecated @screen-md and @screen-desktop as of v3.0.1 
+@screen-md: 992px;
+@screen-md-min: @screen-md;
+@screen-desktop: @screen-md-min;
+
+
+// Large screen  // Note: Deprecated @screen-lg and @screen-lg-desktop as of v3.0.1 
+@screen-lg: 1200px;
+@screen-lg-min: @screen-lg;
+@screen-lg-desktop: @screen-lg-min;
+
+// Wide screen 
+@screen-wide: 1600px;
+@screen-wide-min: @screen-wide;
+@screen-wide-desktop: @screen-wide-min;
+
+// So media queries don't overlap when required, provide a maximum
+@screen-nano-max: (@screen-iphone-min - 1);
+@screen-iphone-max: (@screen-xs-min - 1);
+@screen-xs-max: (@screen-sm-min - 1);
+@screen-sm-max: (@screen-md-min - 1);
+@screen-md-max: (@screen-lg-min - 1);
+@screen-lg-max: (@screen-wide-min - 1);
+@screen-height-wide: 900px;
+
+//////////////////////////////////////////////////////
+// KEYSTONE PROJECT RELATED VARIABLES
+//////////////////////////////////////////////////////
+
+@kjs-img: "../../images";
+

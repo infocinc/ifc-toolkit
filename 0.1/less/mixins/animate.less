@@ -1,0 +1,161 @@
+////////////////////////////////////////////
+// TRANSITION
+////////////////////////////////////////////
+
+.transition(@property:all, @delay:500ms, @easing:ease, @duration:0s) {
+  -webkit-transition: @property @delay @easing @duration;
+  -moz-transition: @property @delay @easing @duration;
+  -o-transition: @property @delay @easing @duration;
+  transition: @property @delay @easing @duration;  
+}
+
+/////////////////////////////////////////////////////////////////////////////////
+// KEYFRAMES
+/////////////////////////////////////////////////////////////////////////////////
+
+@-webkit-keyframes shakeanime {
+  0% { -webkit-transform: translate(0px,0px);}
+  2%{ -webkit-transform: translate(0px,10px);}
+  4% { -webkit-transform: translate(0px,0px);}
+}
+
+@-moz-keyframes shakeanime {
+  0% { -moz-transform: translate(0px,0px);}
+  2%{ -moz-transform: translate(0px,10px);}
+  4% { -moz-transform: translate(0px,0px);}
+}
+
+@keyframes shakeanime {
+  0% { transform: translate(0px,0px);}
+  2%{ transform: translate(0px,10px);}
+  4% { transform: translate(0px,0px);}
+}
+
+.shake {
+  -webkit-animation-name: shakeanime;
+  -webkit-animation-delay: 0ms;
+  -webkit-animation-duration: 2000ms;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+
+  -moz-animation-name: shakeanime;
+  -moz-animation-delay: 0s;
+  -moz-animation-duration: 2000ms;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+
+  animation-name: shakeanime;
+  animation-duration: 2000ms;
+  animation-iteration-count: infinite;
+  animation-delay: 0s;
+  animation-timing-function: linear;
+}
+
+@keyframes wobble {
+  0% {
+    transform:  rotate(0deg) scaleX(1) scaleY(1) ;
+  }
+  25% {
+    transform:  rotate(0deg) scaleX(0.97) scaleY(0.99) ;
+  }
+  50% {
+    transform:  rotate(0deg) scaleX(0.97) scaleY(0.95) ;
+  }
+  75% {
+    transform:  rotate(0deg) scaleX(0.99) scaleY(0.95) ;
+  }
+  100% {
+    transform:  rotate(0deg) scaleX(1) scaleY(1) ;
+  }
+}
+
+@-moz-keyframes wobble {
+  0% {
+    -moz-transform:  rotate(0deg) scaleX(1) scaleY(1) ;
+  }
+  25% {
+    -moz-transform:  rotate(0deg) scaleX(0.97) scaleY(0.99) ;
+  }
+  50% {
+    -moz-transform:  rotate(0deg) scaleX(0.97) scaleY(0.95) ;
+  }
+  75% {
+    -moz-transform:  rotate(0deg) scaleX(0.99) scaleY(0.95) ;
+  }
+  100% {
+    -moz-transform:  rotate(0deg) scaleX(1) scaleY(1) ;
+  }
+}
+
+
+@-webkit-keyframes wobble {
+  0% {
+    -webkit-transform:  rotate(0deg) scaleX(1) scaleY(1) ;
+  }
+  25% {
+    -webkit-transform:  rotate(0deg) scaleX(0.97) scaleY(0.99) ;
+  }
+  50% {
+    -webkit-transform:  rotate(0deg) scaleX(0.97) scaleY(0.95) ;
+  }
+  75% {
+    -webkit-transform:  rotate(0deg) scaleX(0.99) scaleY(0.95) ;
+  }
+  100% {
+    -webkit-transform:  rotate(0deg) scaleX(1) scaleY(1) ;
+  }
+}
+
+@-o-keyframes wobble {
+  0% {
+    -o-transform:  rotate(0deg) scaleX(1) scaleY(1) ;
+  }
+  25% {
+    -o-transform:  rotate(0deg) scaleX(0.97) scaleY(0.99) ;
+  }
+  50% {
+    -o-transform:  rotate(0deg) scaleX(0.97) scaleY(0.95) ;
+  }
+  75% {
+    -o-transform:  rotate(0deg) scaleX(0.99) scaleY(0.95) ;
+  }
+  100% {
+    -o-transform:  rotate(0deg) scaleX(1) scaleY(1) ;
+  }
+}
+
+@-ms-keyframes wobble {
+  0% {
+    -ms-transform:  rotate(0deg) scaleX(1) scaleY(1) ;
+  }
+  25% {
+    -ms-transform:  rotate(0deg) scaleX(0.97) scaleY(0.99) ;
+  }
+  50% {
+    -ms-transform:  rotate(0deg) scaleX(0.97) scaleY(0.95) ;
+  }
+  75% {
+    -ms-transform:  rotate(0deg) scaleX(0.99) scaleY(0.95) ;
+  }
+  100% {
+    -ms-transform:  rotate(0deg) scaleX(1) scaleY(1) ;
+  }
+}
+
+.wobble {
+  animation: wobble linear 10s;
+  animation-iteration-count: infinite;
+  animation-delay: 20ms;
+  -webkit-animation: wobble linear 10s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-delay: 20ms;
+  -moz-animation: wobble linear 10s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-delay: 20ms;
+  -o-animation: wobble linear 10s;
+  -o-animation-iteration-count: infinite;
+  -o-animation-delay: 20ms;
+  -ms-animation: wobble linear 10s;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-delay: 20ms;
+}

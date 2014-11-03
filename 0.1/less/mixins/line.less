@@ -1,0 +1,35 @@
+///////////////////////////////////////////////
+// H/V LINE
+///////////////////////////////////////////////
+
+.line(@length: 50px, @margin-x :20px, @margin-y: 0px, @lineType) {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.line(@length: 50px, @margin-x : 0px, @margin-y: 0px, @lineType) 
+  when (@lineType = right) {
+  width:1px;
+  margin: 0 auto;
+  margin-top: @margin-x;
+  margin-bottom: @margin-y;
+  border-@{lineType}: 1px solid;
+  height: @length;
+}
+
+.line(@length: 50px, @margin-x: 0px, @margin-y: 0px, @lineType) 
+ when (@lineType = top) {
+  height:1px;
+  width: @length;
+  margin-right: @margin-x;
+  margin-left: @margin-y;
+  border: 1px solid;
+}
+
+.h-line {
+   .line(30px,0px,0px,top);
+}
+
+.v-line {
+  .line(@length:80px,@lineType:right);
+}

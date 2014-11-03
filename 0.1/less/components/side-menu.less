@@ -1,0 +1,248 @@
+/*! Copyright 2014 Infocinc (www.infocinc.com)
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//   http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+*/
+@import (reference) "../variables.less";
+@import (reference) "../mixins/animate.less";
+@import (reference) "../mixins/background.less";
+@import (reference) "../mixins/colors.less";
+@import (reference) "../mixins/display.less";
+@import (reference) "../mixins/filters.less";
+@import (reference) "../mixins/transform.less";
+
+///////////////////////////////////////////////////////////////////////////////////////////
+// VARS
+///////////////////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////////////////
+// OVERLAYS  
+///////////////////////////////////////////////////////////////////////////////////////////
+
+.overlay-open-menu {
+  background: @black;
+  opacity: 0;
+  .transition(opacity);
+  .front;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////
+// HAMBURGER MENU
+///////////////////////////////////////////////////////////////////////////////////////////
+
+// CHANGE COLORS ON HOVER, MENU OPEN
+.menu-color(@bg-color: white;@text-color:black) {
+  background: @bg-color !important;
+  .menu {
+    color: @text-color !important;
+  }
+  #hamburger .icon-bar {
+    background-color: @text-color !important;
+  }
+}
+
+.menu-toggle(@font:'Open Sans Condensed';@text-color:white;@invert-color:black) {
+    position: absolute;
+    z-index: 9999;
+    right: 0px;
+    top: 0px;
+    padding: 15px;
+    .menu {
+      display: none;
+    }
+    #hamburger {
+      width: 30px;
+      margin: 0 auto;   
+      margin-left: 10px;
+      .icon-bar {
+        display: block;
+        width: 30px;
+        height: 4px;
+        background: @text-color;
+      }
+      .icon-bar+.icon-bar {
+        margin-top: 6px;
+      }
+    }
+    &:hover {
+      .menu-color;
+    }
+
+    @media screen and (min-width:@screen-iphone-min) {
+      .menu {
+        position: relative;
+        top: -4px;
+        left: 1px;
+        font-family: @font, sans-serif;
+        font-size: 15px;
+        color: @text-color;
+        letter-spacing: 0.2em;
+      }
+      #hamburger,.menu {
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+
+    @media screen and (min-width:@screen-sm-min) {
+      padding: 25px 40px;
+      .menu {
+        font-size: 20px;
+      }
+      #hamburger {
+        margin-left: 15px;
+        .icon-bar {
+          height: 5px;
+        }
+      }
+    }
+}
+.menu-toggle {
+  .menu-toggle();
+}
+
+.menu-open {
+  .transition(all);
+  .menu-color;
+  #hamburger .icon-bar {
+    width: 20px !important;
+    margin-left: 10px !important;
+  }
+}
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+// CLOSE BUTTON INSIDE MENU
+/////////////////////////////////////////////////////////////////////////////////////
+
+.remove-btn(@color:white;@size:1.8em;@x:20px;@y:10px;@side:right;@active:@darkGray) {
+  #remove-btn {
+    position: absolute;
+    background: none;
+    font-size: @size;
+    span {
+      color: @color;
+    }        
+    & when (@side = right) {
+      right: @x;
+    }
+    top: @y;
+    &:active {
+      background: @active;
+    }
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+// SIDE MENU 
+////////////////////////////////////////////////////////////////////////////////////
+
+.side-menu-mobile(@bg;@width:200px;@side:right;@text-color:white;@font;@font-size) {
+  position: fixed;
+  z-index: 9999;
+  overflow-y: auto;
+  width: @width;
+  .translate3d(@x:@width);
+  .bg(@bg);
+  height: 100%;
+  padding-left: 40px;
+
+  & when (@side = right) {
+    right: 0px;
+    .remove-btn();
+  }
+  & when (@side = left) {
+    left: 0px;
+    .remove-btn(left);
+  }
+  a {
+    display: block;
+    border: none;
+    margin: 0;
+    max-width: 100px;
+    padding: 10px 0px;
+    color: @text-color !important;
+  }
+  ul {
+    margin: 0;
+  }
+  li {
+    word-wrap: normal !important;
+    border: none;
+    letter-spacing: 0.3em;
+    font-family: @font, sans-serif;
+    font-size: @font-size;
+  }
+
+  .principal {
+    margin-top: 30px;
+  }
+
+  .lang,.menu-buttons,.menu-footer {
+    border-top: 4px solid @text-color;
+    width: 100px;
+    overflow-x: visible;
+  }
+
+  .lang,.menu-buttons {
+    .fb-like, & > iframe, & > div > iframe  {
+      margin-top: 20px !important;
+      max-width: 100px !important;
+    }
+    .fb-like span {
+      margin-left: 0px !important;
+    }
+  }
+  .lang {
+    margin-top: 10px;
+    a {
+      padding: 15px 0;
+    }
+  }
+  .menu-buttons li {
+      margin-top: 20px;
+  }
+  .menu-footer {
+    color: @text-color;
+    margin-top: 20px;
+    .nav-item {
+      position: relative;
+      top: 10px;
+      text-align: left;
+      width: 100px;
+    }
+  }
+  #social-icons {
+    width: 100px;
+    margin-top: 10px;
+    a {
+      float: left;
+    }
+    img {
+      padding-right: 10px;
+      width: 40px;
+      &:hover {
+        .shake;
+      }
+    }
+  } 
+
+}
+
+.side-menu-full(@width:250px;@font-size:15px) {
+  width: @width;
+  .translate3d(@x:@width);
+  li {
+    font-size: @font-size;
+  } 
+}
+

@@ -1,0 +1,28 @@
+
+////////////////////////////////////////
+// FILTERS
+////////////////////////////////////////
+
+.grayfilter(@url:'../images/grayscale.svg#greyscale') {
+  @media screen and (min-width:@screen-sm-min) {
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: url(@url);
+  }
+}
+
+.overlay-black(@opacity:0.2) {
+  background: @black;
+  opacity: @opacity;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
